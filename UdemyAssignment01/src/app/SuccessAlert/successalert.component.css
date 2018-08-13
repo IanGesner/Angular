@@ -1,0 +1,9 @@
+.success-alert{
+    background-color: lightgreen;
+    border-style: solid;
+    border-color: green;
+    color: green;
+    padding: 5px;
+    max-width: 100px;
+    text-align: center;
+}
