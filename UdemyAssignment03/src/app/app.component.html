@@ -1,0 +1,13 @@
+<button class="btn btn-primary" (click)="onButtonClicked($event)">Show/Hide</button>
+
+<p [hidden]="isHidden">Secret Password = tuna</p>
+
+
+<div class="container dynamic-list">
+
+  <div *ngFor="let clickedTime of clickedTimes; let i = index" [ngStyle]="{backgroundColor: i >= 5 ? 'gray' : 'white'}">
+    Clicked at {{ clickedTime }}
+  </div>
+</div>
+
+
