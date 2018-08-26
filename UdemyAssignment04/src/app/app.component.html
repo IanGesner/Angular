@@ -1,0 +1,3 @@
+<app-game-control (tick)="onClockTick($event)"></app-game-control>
+<app-odd *ngFor="let oddNumber of oddNumbers" [count]="oddNumber"></app-odd>
+<app-even *ngFor="let evenNumber of evenNumbers" [count]="evenNumber"></app-even>
