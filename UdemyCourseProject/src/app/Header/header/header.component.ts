@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { SelectedView } from '../../shared/selected-view.enum';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Output()
+  viewSelect =  new EventEmitter<SelectedView>();
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelectRecipes(){
+    console.log('recipes');
+    this.viewSelect.emit(SelectedView.Recipes);
+  }
+
+  onSelectShoppingList(){
+    this.viewSelect.emit(SelectedView.ShoppingList);
+  }
 }
