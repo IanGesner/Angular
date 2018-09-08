@@ -1,21 +1,28 @@
 import { Component } from '@angular/core';
+import { UserService } from './_services/user.service';
+import { UserActivityService } from './_services/user-activity.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [UserActivityService]
 })
 export class AppComponent {
-  activeUsers = ['Max', 'Anna'];
-  inactiveUsers = ['Chris', 'Manu'];
+  inactiveUsers = [];
+  activeUsers = [];
+
+constructor(private userService: UserService,
+            private userActivityService: UserActivityService) { 
+  this.inactiveUsers = userService.inactiveUsers;
+  this.activeUsers = userService.activeUsers
+}
 
   onSetToInactive(id: number) {
-    this.inactiveUsers.push(this.activeUsers[id]);
-    this.activeUsers.splice(id, 1);
+    this.userService.setToInactive(id);
   }
 
   onSetToActive(id: number) {
-    this.activeUsers.push(this.inactiveUsers[id]);
-    this.inactiveUsers.splice(id, 1);
+    this.userService.setToActive(id);
   }
 }
