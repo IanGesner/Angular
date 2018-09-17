@@ -14,6 +14,12 @@ export class ShoppingListService {
         this.ingredientAdded.emit(this.ingredients);
     }
 
+    addIngredients(ingredients: Ingredient[]){
+        ingredients.forEach(ingredient => {
+            this.ingredients.push(ingredient);
+        });
+    }
+
     getIngredients() {
         return this.ingredients.slice(); // return copy
     }
